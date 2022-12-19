@@ -4,38 +4,34 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    float duration = 2f;
-    private float t = 0;
-    bool isReset = false;
+	private Color hoverColor = Color.green;
+	private Renderer renderer;
+    bool isHovering = false;
+    public float timeToWait = 3;
+    float timeLeft;    
 
-    void OnMouseEnter()
-    {
-        Activate();
+	void Start() {
+		renderer = GetComponent<Renderer>();
+		renderer.material.color = Color.white;
+        timeLeft = timeToWait;
+	}
+ 
+	void OnMouseOver() {
+        isHovering = true;
     }
-    void OnMouseExit()
-    {
-
-        Deactivate();
-
+ 
+	void OnMouseExit() {
+		isHovering = false;
+        timeLeft = timeToWait;
+        renderer.material.color = Color.white;
     }
-    void Activate()
-    {
 
-        GetComponent<Renderer>().material.color = Color.Lerp(Color.white, Color.red, t);
-        if (t < 1)
-        {
-            t += Time.deltaTime / duration;
+    void Update() {
+        if (isHovering) {
+            timeLeft -= Time.deltaTime;
         }
-
-    }
-
-    void Deactivate()
-    {
-
-        GetComponent<Renderer>().material.color = Color.Lerp(Color.red, Color.white, t);
-        if (t < 1)
-        {
-            t += Time.deltaTime / duration;
-        }
+        if (timeLeft <= 0) {
+            renderer.material.color = hoverColor;
+        } 
     }
 }
