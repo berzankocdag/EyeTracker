@@ -14,11 +14,21 @@ public class ButtonClick : MonoBehaviour
     }
 
     public void SetText(string text) {    
-        if (text == "DEL" && Textfield.text.Length != 0) {
-            Textfield.text = Textfield.text.Remove(Textfield.text.Length - 1);
+        if (text == "DEL") {
+            if(Textfield.text.Length != 0 && Textfield.text != "Please Give an Input") {
+                Textfield.text = Textfield.text.Remove(Textfield.text.Length - 1);
+            } 
+            else {
+                Textfield.text = "Please Give an Input";
+            }
         }
         else if (Textfield.text != "DEL" && Textfield.text.Length >= 0) {
-            Textfield.text = Textfield.text + text;
+            if(Textfield.text == "Please Give an Input") {
+                Textfield.text = text;
+            }
+            else {
+                Textfield.text = Textfield.text + text;
+            }
         }
     }
 }

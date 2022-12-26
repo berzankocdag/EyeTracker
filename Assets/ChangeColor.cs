@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-	private Color hoverColor = Color.green;
+	private Color hoverColor = Color.cyan;
 	private Renderer renderer;
     bool isHovering = false;
     public float timeToWait = 3;
