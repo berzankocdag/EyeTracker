@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tobii.Gaming;
 using UnityEngine;
+ 
 
+[RequireComponent(typeof(GazeAware))]
 public class ChangeColor : MonoBehaviour
 {
 	private Color hoverColor = Color.cyan;
@@ -10,7 +13,11 @@ public class ChangeColor : MonoBehaviour
     public float timeToWait = 3;
     float timeLeft;    
 
+    private GazeAware _gazeAware;
+
 	void Start() {
+        _gazeAware = GetComponent<GazeAware>();
+        Debug.Log("started");
 		renderer = GetComponent<Renderer>();
 		renderer.material.color = Color.white;
         timeLeft = timeToWait;
@@ -27,11 +34,12 @@ public class ChangeColor : MonoBehaviour
     }
 
     void Update() {
-        if (isHovering) {
+        if (_gazeAware.HasGazeFocus) {
+            Debug.Log("FOCUS");
             timeLeft -= Time.deltaTime;
         }
         if (timeLeft <= 0) {
-            renderer.material.color = hoverColor;
-        } 
+            renderer.material.color = hoverColor;            
+        }
     }
 }
