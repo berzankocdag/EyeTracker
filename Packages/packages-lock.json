@@ -1,5 +1,14 @@
 {
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "com.tobii.gaming.sdk": {
+      "version": "file:E:/tobii",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+>>>>>>> Stashed changes
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
