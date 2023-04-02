@@ -6,17 +6,15 @@ using UnityEngine.UI;
 using Tobii.Gaming;
 
 [RequireComponent(typeof(GazeAware))]
-public class GazeClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class GazeClick : MonoBehaviour
 {
     public GlobalVar globalScript;
     public GameObject button;
 	private new Renderer renderer;
     private Color hoverColor = Color.cyan;
-    
     private GazeAware _gazeAware;
-
-    bool isHovering = false;
     float timeLeft, timeToWait;    
+    bool isEnabled = false;
 
 	void Start() {
         _gazeAware = GetComponent<GazeAware>();
@@ -26,32 +24,31 @@ public class GazeClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 	}
 
     void Update() {
-        if(_gazeAware.HasGazeFocus || isHovering) {
+        timeToWait = globalScript.waitingTime;
+        if (_gazeAware.HasGazeFocus && !isEnabled) {
             timeLeft -= Time.deltaTime;
+            if (timeLeft <= (timeToWait/2)) {
+                button.GetComponent<Image>().color = Color.cyan;
+            } 
+            if (timeLeft <= (timeToWait/4)) {
+                button.GetComponent<Image>().color = Color.magenta;
+                timeLeft = timeToWait;
+                isEnabled = true;
+                if (_gazeAware.HasGazeFocus) {
+                    Invoke("doClick", timeToWait);
+                }
+            }
+        } 
+        else {
+            timeLeft = timeToWait;
         }
-        if (timeLeft <= (timeToWait/2)) {
-            button.GetComponent<Image>().color = Color.cyan;
+        if(!_gazeAware.HasGazeFocus) {
+            timeLeft = timeToWait;
+            isEnabled = false;
+            button.GetComponent<Image>().color = Color.white;
         }
-        if (timeLeft <= (timeToWait/4)) {
-            button.GetComponent<Image>().color = Color.magenta;
-        }  
     }
-
-    public void OnPointerEnter(PointerEventData pointerEventData)
-    {
-        Invoke("doClick", timeToWait);
-        isHovering = true;
-    }
-
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
-        CancelInvoke("doClick");
-        isHovering = false;
-        timeLeft = timeToWait;
-        button.GetComponent<Image>().color = Color.white;
-    }
-
     public void doClick() {
-        GetComponent<Button>().onClick.Invoke();
+        button.GetComponent<Button>().onClick.Invoke();
     }
 }

@@ -8,7 +8,7 @@ public class GlobalVar : MonoBehaviour
     public float waitingTime = 3; 
     public TMP_Text TextField;
     // Start is called before the first frame update
-
+  
     public void IncreaseTime() {
       waitingTime += 1;
     }
@@ -17,14 +17,10 @@ public class GlobalVar : MonoBehaviour
       waitingTime -= 1;
     }
 
-    public void SetNumber(string text) {
-      Debug.Log("ZOR");
-
-      if (text == "-") {
-        DecreaseTime();
-      }
-      else {
-        IncreaseTime();
+    public void Update() {
+      if (TextField.text != null) {
+        TextField.text = string.Format("{0:N2}", waitingTime);
       }
     }
 }
+

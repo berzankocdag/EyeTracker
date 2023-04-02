@@ -13,13 +13,13 @@ namespace Tobii.Gaming.Examples.GazePointData
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class GazePlotter : MonoBehaviour
 	{
-		[Range(3.0f, 15.0f), Tooltip("Number of gaze points in point cloud.")]
+		[Range(3.0f, 50.0f), Tooltip("Number of gaze points in point cloud.")]
 		public int PointCloudSize = 10;
 
 		[Tooltip("Sprite to use for gaze points in the point cloud.")]
 		public Sprite PointSprite;
 
-		[Range(0.0f, 1.0f), Tooltip("Scale to draw the point sprites in the point cloud.")]
+		[Range(0.0f, 100.0f), Tooltip("Scale to draw the point sprites in the point cloud.")]
 		public float PointScale = 0.1f;
 
 		[Tooltip("Distance from screen to visualization plane in the World.")]
