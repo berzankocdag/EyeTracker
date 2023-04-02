@@ -17,12 +17,10 @@ public class GlobalVar : MonoBehaviour
       waitingTime -= 1;
     }
 
-    // public void Update() {
-    //   if (TextField.text != null) {
-    //     TextField.text = string.Format("{0:N2}", waitingTime);
-    //   } else {
-    //     return;
-    //   }
-    // }
+    public void Update() {
+      if (TextField.text != null) {
+        TextField.text = string.Format("{0:N2}", waitingTime);
+      }
+    }
 }
 
