@@ -7,6 +7,8 @@ public class ButtonClick : MonoBehaviour
 {
     public TMP_Text TextField;
     public GlobalVar globalScript;
+    public GameObject VideoSystem;
+
 
     void Start() {
         if (TextField.text == "Please Give an Input") {
@@ -30,7 +32,8 @@ public class ButtonClick : MonoBehaviour
             globalScript.waitingTime -= 1;
         }
         else if (text == "VIDEO" && TextField.text.Length >= 0) {
-
+            bool isActive = VideoSystem.activeSelf;
+            VideoSystem.SetActive(!isActive);
         }
         else if (text != "DEL" && TextField.text.Length >= 0) {
             if(TextField.text == "Please Give an Input") {
