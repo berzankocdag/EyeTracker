@@ -29,6 +29,9 @@ public class ButtonClick : MonoBehaviour
         else if (text == "Decrease") {
             globalScript.waitingTime -= 1;
         }
+        else if (text == "VIDEO" && TextField.text.Length >= 0) {
+
+        }
         else if (text != "DEL" && TextField.text.Length >= 0) {
             if(TextField.text == "Please Give an Input") {
                 TextField.text = text;
