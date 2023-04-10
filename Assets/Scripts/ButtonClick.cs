@@ -25,11 +25,14 @@ public class ButtonClick : MonoBehaviour
                 TextField.text = "Please Give an Input";
             }
         }
-        else if (text == "Increase") {
+        else if (text == "+") {
             globalScript.waitingTime += 1;
         }
-        else if (text == "Decrease") {
+        else if (text == "-") {
             globalScript.waitingTime -= 1;
+        }
+        else if (text == "RESET") {
+            globalScript.waitingTime = 3;
         }
         else if (text == "VIDEO" && TextField.text.Length >= 0) {
             bool isActive = VideoSystem.activeSelf;
