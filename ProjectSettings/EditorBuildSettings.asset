@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Explore.unity
     guid: 8daa3239209afca4fa4dbdb3bbfc6608
+  - enabled: 1
+    path: Assets/Scenes/HouseWorks.unity
+    guid: d38d8bc1e5ceed749b71ea8dcb4d41d1
+  - enabled: 1
+    path: Assets/Scenes/Shower.unity
+    guid: f3c1ed8a7ca60474f9a99424a3bae7dd
   m_configObjects: {}
