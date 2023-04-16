@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class OpenSettings : MonoBehaviour
 {
-    public GameObject SettingsObject, KeyboardObject, KeyboardButton, VideoObject;
+    public GameObject SettingsObject, VideoObject, KeyboardObject;
 
     public void SettingsOpener() {
-        bool isActive = KeyboardObject.activeSelf;
+        bool isActive = SettingsObject.activeSelf;
         if(isActive){
-            KeyboardObject.SetActive(false);
-            SettingsObject.SetActive(true);
-            KeyboardButton.SetActive(false);
-
+            SettingsObject.SetActive(false);
         }
         else{
-            KeyboardObject.SetActive(true);
-            SettingsObject.SetActive(false);
-            KeyboardButton.SetActive(true);
+            SettingsObject.SetActive(true);
         }
     }
     public void VideoBack() {
