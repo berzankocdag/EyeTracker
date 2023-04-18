@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shower.unity
     guid: f3c1ed8a7ca60474f9a99424a3bae7dd
+  - enabled: 0
+    path: Assets/Scenes/BrickBreaker/BB_game.unity
+    guid: c6b3f6f350ef19343bf26a09e646a798
+  - enabled: 1
+    path: Assets/Scenes/Brick Breaker 2/MainGame.unity
+    guid: 2296de43e4b9ed940a2fae8d924c28eb
   m_configObjects: {}
