@@ -28,7 +28,10 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("Shower");
     }
 
-
+    public void LoadBrickBreakerScene()
+    {
+        SceneManager.LoadScene("MainGame");
+    }
 
 
 
