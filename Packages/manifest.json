@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.tobii.gaming.sdk": "file:E:/tobii",
+    "com.tobii.gaming.sdk": "file:C:/Users/Berzan/Desktop/Tobii SDK/TobiiUnitySDK_5.0.0.3",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.16",
